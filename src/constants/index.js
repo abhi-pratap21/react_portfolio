@@ -11,11 +11,11 @@ export const ABOUT_TEXT = `I am a dedicated and versatile full stack web develop
 
 export const EXPERIENCES = [
   {
-    year: "2021 - Present",
+    year: "2021 - 2025",
     role: "Greater Noida Instuation of techonology",
-    company: "CSE.",
+    company: "BTech, CSE",
     //description: `Led a team in developing and maintaining web applications using JavaScript, React.js, and Node.js. Implemented RESTful APIs and integrated with MongoDB databases. Collaborated with stakeholders to define project requirements and timelines.`,
-    technologies: ["CGPA-6.3" ],
+    technologies: ["CGPA-7.0"],
   },
   {
     year: "2019 - 2020",
@@ -32,11 +32,11 @@ export const EXPERIENCES = [
     technologies: ["Percentage-84"],
   },
   // {
-  //   year: "2020 - 2021",
-  //   role: "Software Engineer",
-  //   company: "Paypal",
-  //   description: `Contributed to the development of web applications using JavaScript, React.js, and Node.js. Managed databases and implemented data storage solutions using MongoDB. Worked closely with product managers to prioritize features and enhancements.`,
-  //   technologies: ["Ruby", "Rails", "PHP", "Sqlite"],
+  //   year: "Nov 2024 - Feb 2025",
+  //   role: "Frontend Developer Intern",
+  //   company: "GAO Tek Inc",
+  //   description: `Worked on the development and maintenance of e-commerce web pages using WooCommerce and WordPress. Assisted in creating responsive UI components with HTML, CSS, and JavaScript. Collaborated with the team to enhance website performance and user experience.`,
+  //   technologies: ["HTML", "CSS", "JavaScript", "WordPress", "WooCommerce"],
   // },
 ];
 
@@ -47,7 +47,7 @@ export const PROJECTS = [
     description:
       "Wanderlust is a full-stack platform designed for travel enthusiasts to discover and share amazing travel destinations. Built with JavaScript, Express.js, Node.js, MongoDB, CSS, and EJS, the platform allows users to explore new places, post reviews, and connect with a community of travelers. This project showcases my expertise in full-stack development, with a focus on creating robust backend services and engaging, responsive user interfaces. Through Wanderlust, I gained hands-on experience in managing a full development cycle, from server-side logic to database management and frontend design, further enhancing my proficiency in web technologies.",
     technologies: ["JavaScript", "NodeJs","ExpressJs","MongoDb","Joi"],
-      // link: "https://react-e-commerce-shop-xi.vercel.app/"
+      link: "https://wanderlust-sem2.onrender.com/listings"
   },
   {
     title: "Video Streaming App",
@@ -89,17 +89,17 @@ export const PROJECTS = [
     technologies: ["Next.js", "Firebase"],
     link: "https://todo-next-firebase-xi.vercel.app/"
   },
-  // {
-  //   title: "Blogging Platform",
-  //   image: project4,
-  //   description:
-  //     "A platform for creating and publishing blog posts, with features like rich text editing, commenting, and user profiles.",
-  //   technologies: ["HTML", "CSS", "Vue.js", "Express", "mySQL"],
-  // },
+  {
+    title: "Creator Dashboard: A Full-Stack Role-Based Content Management Platform",
+    image: project4,
+    description:
+      "Creator Dashboard is a secure and scalable platform designed to empower creators and administrators with real-time content management capabilities. Built using React.js, Tailwind CSS, Node.js, Express.js, and MongoDB, the application includes features such as JWT-based user authentication, a credit point system, and content aggregation from Twitter and Reddit APIs. Users can interact with posts (save, share, report), while administrators have a dedicated panel for managing user activity and platform content. This project demonstrates my full-stack development skills, including building RESTful APIs, implementing role-based access control, integrating third-party APIs, and deploying a complete web solution on modern cloud platforms. The frontend is deployed on Firebase Hosting, the backend is hosted on Render, and the database is managed through MongoDB Atlas, ensuring reliable performance and scalability across all layers of the stack.",
+    technologies: ["ReactJs", "TailwindCss", "NodeJs", "ExpressJs", "JWT", "MongoDBAtlas"],
+  },
 ];
 
 export const CONTACT = {
-  address: "Alpha 1, D-3 Greater Noida Uttar Predesh",
+  address: "Noida Sector - 62, Uttar Predesh",
   phoneNo: "+91 6388443418",
   email: "mallabhishekpratap88@gmail.com",
 };
