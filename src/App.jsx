@@ -2,6 +2,7 @@ import { Toaster } from "react-hot-toast";
 import ScrollProgress from "./components/ScrollProgress";
 import Navbar from "./components/Navbar";
 import SectionNav from "./components/SectionNav";
+import FloatingContact from "./components/FloatingContact";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Technologies from "./components/Technologies";
@@ -21,6 +22,7 @@ const App = () => {
 
       <Navbar />
       <SectionNav />
+      <FloatingContact />
 
       <main className="container px-6 mx-auto md:px-8">
         <Hero />

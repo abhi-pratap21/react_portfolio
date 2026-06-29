@@ -21,7 +21,7 @@ export const SECTIONS = [
 
 export const SOCIALS = {
   linkedin: "https://www.linkedin.com/in/abhishek-pratap-mall-252481250",
-  github: "https://github.com/Kevin-abhi",
+  github: "https://github.com/abhi-pratap21",
   twitter: "https://x.com/Abhishe45571287",
   instagram: "https://www.instagram.com/abhi__pratap",
 };

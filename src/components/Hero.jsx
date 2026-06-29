@@ -7,7 +7,7 @@ import {
 } from "framer-motion";
 import { FiArrowRight, FiDownload, FiChevronDown } from "react-icons/fi";
 import { HERO_CONTENT } from "../constants";
-import profilePic from "../assets/abhiprofilepic.png";
+import profilePic from "../assets/abhiprofilepic.jpg";
 import pdf from "../pdf/resume.pdf";
 import Magnetic from "./Magnetic";
 
@@ -73,19 +73,19 @@ const Hero = () => {
               </span>
             </motion.h1>
 
-            {/* Rotating role */}
+            {/* Rotating role — wraps cleanly on mobile, no clipping */}
             <motion.div
               variants={fadeUp(0.2)}
-              className="flex items-center h-10 mt-4 overflow-hidden text-xl sm:text-2xl"
+              className="mt-4 text-xl sm:text-2xl min-h-[3.5rem] sm:min-h-[2.25rem]"
             >
-              <span className="text-neutral-500">I&apos;m a&nbsp;</span>
+              <span className="text-neutral-500">I&apos;m a </span>
               <AnimatePresence mode="wait">
                 <motion.span
                   key={roleIndex}
-                  initial={{ y: 24, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  exit={{ y: -24, opacity: 0 }}
-                  transition={{ duration: 0.4 }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.3 }}
                   className="font-medium text-transparent bg-gradient-to-r from-cyan-300 to-purple-400 bg-clip-text"
                 >
                   {ROLES[roleIndex]}
