@@ -77,9 +77,8 @@ const Services = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="relative flex flex-col items-center gap-5 p-8 mt-12 overflow-hidden text-center border sm:flex-row sm:justify-between sm:text-left rounded-3xl border-white/10 bg-gradient-to-r from-cyan-500/10 to-purple-600/10"
+        className="relative flex flex-col items-center gap-5 p-8 mt-12 overflow-hidden text-center border sm:flex-row sm:justify-between sm:text-left rounded-3xl border-white/10 bg-white/[0.03]"
       >
-        <div className="absolute rounded-full -right-10 -top-10 h-40 w-40 bg-purple-600/20 blur-3xl" />
         <div className="relative">
           <h3 className="text-xl font-semibold text-white">
             Have a project in mind?

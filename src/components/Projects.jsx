@@ -1,10 +1,5 @@
 import { useRef } from "react";
-import {
-  motion,
-  useMotionValue,
-  useSpring,
-  useMotionTemplate,
-} from "framer-motion";
+import { motion, useMotionValue, useSpring } from "framer-motion";
 import { FiExternalLink, FiGithub } from "react-icons/fi";
 import { PROJECTS, SOCIALS } from "../constants";
 import SectionTitle from "./SectionTitle";
@@ -15,8 +10,6 @@ const ProjectCard = ({ project, index }) => {
   const rotateY = useMotionValue(0);
   const sx = useSpring(rotateX, { stiffness: 150, damping: 15 });
   const sy = useSpring(rotateY, { stiffness: 150, damping: 15 });
-  const glowX = useMotionValue(50);
-  const glowY = useMotionValue(50);
 
   const handleMove = (e) => {
     const rect = ref.current.getBoundingClientRect();
@@ -24,16 +17,12 @@ const ProjectCard = ({ project, index }) => {
     const py = (e.clientY - rect.top) / rect.height;
     rotateY.set((px - 0.5) * 10);
     rotateX.set(-(py - 0.5) * 10);
-    glowX.set(px * 100);
-    glowY.set(py * 100);
   };
 
   const reset = () => {
     rotateX.set(0);
     rotateY.set(0);
   };
-
-  const glow = useMotionTemplate`radial-gradient(320px circle at ${glowX}% ${glowY}%, rgba(56,189,248,0.18), transparent 65%)`;
 
   return (
     <motion.article
@@ -47,12 +36,6 @@ const ProjectCard = ({ project, index }) => {
       style={{ rotateX: sx, rotateY: sy, transformPerspective: 900 }}
       className="relative flex flex-col overflow-hidden transition-colors border group rounded-2xl border-white/5 bg-white/[0.02] hover:border-white/15"
     >
-      {/* Cursor-following spotlight */}
-      <motion.div
-        style={{ background: glow }}
-        className="absolute inset-0 z-10 transition-opacity duration-300 opacity-0 pointer-events-none group-hover:opacity-100"
-      />
-
       <div className="relative overflow-hidden h-52">
         <img
           src={project.image}

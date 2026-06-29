@@ -39,7 +39,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative flex items-center min-h-screen pb-16 border-b scroll-mt-24 border-white/5"
+      className="relative flex items-center min-h-screen pt-24 pb-16 border-b scroll-mt-24 border-white/5"
     >
       {/* Animated grid backdrop */}
       <div className="absolute inset-0 -z-10 bg-grid" />
@@ -134,11 +134,6 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="relative flex justify-center"
           >
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
-              className="absolute h-[105%] w-[105%] max-w-md rounded-full bg-[conic-gradient(from_0deg,rgba(56,189,248,0.35),rgba(168,85,247,0.35),rgba(236,72,153,0.35),rgba(56,189,248,0.35))] blur-2xl"
-            />
             <motion.img
               animate={{ y: [0, -16, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}

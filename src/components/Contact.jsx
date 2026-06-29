@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { motion } from "framer-motion";
 import { FiMapPin, FiPhone, FiMail, FiSend } from "react-icons/fi";
+import { FaWhatsapp } from "react-icons/fa";
 import { CONTACT } from "../constants";
 import SectionTitle from "./SectionTitle";
 
@@ -31,7 +32,17 @@ const Contact = () => {
     }
   };
 
+  const whatsappNumber = CONTACT.phoneNo.replace(/\D/g, "");
   const contactItems = [
+    {
+      Icon: FaWhatsapp,
+      value: "Message on WhatsApp",
+      href: `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+        "Hi Abhishek, I came across your portfolio and would like to connect."
+      )}`,
+      external: true,
+      iconColor: "text-green-400",
+    },
     {
       Icon: FiPhone,
       value: CONTACT.phoneNo,
@@ -69,11 +80,15 @@ const Contact = () => {
             details below.
           </p>
           <div className="flex flex-col gap-4 mt-2">
-            {contactItems.map(({ Icon, value, href }) => {
+            {contactItems.map(({ Icon, value, href, external, iconColor }) => {
               const inner = (
                 <>
-                  <span className="flex items-center justify-center transition-colors border w-11 h-11 rounded-xl bg-white/5 text-cyan-300 border-white/5 group-hover:border-cyan-500/40">
-                    <Icon />
+                  <span
+                    className={`flex items-center justify-center transition-colors border w-11 h-11 rounded-xl bg-white/5 border-white/5 group-hover:border-cyan-500/40 ${
+                      iconColor || "text-cyan-300"
+                    }`}
+                  >
+                    <Icon className="text-lg" />
                   </span>
                   <span className="break-all text-neutral-300 group-hover:text-white">
                     {value}
@@ -81,7 +96,12 @@ const Contact = () => {
                 </>
               );
               return href ? (
-                <a key={value} href={href} className="flex items-center gap-4 group">
+                <a
+                  key={value}
+                  href={href}
+                  {...(external ? { target: "_blank", rel: "noreferrer" } : {})}
+                  className="flex items-center gap-4 group"
+                >
                   {inner}
                 </a>
               ) : (
