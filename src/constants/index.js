@@ -220,7 +220,7 @@ export const SERVICES = [
 /*  Contact                                                            */
 /* ------------------------------------------------------------------ */
 export const CONTACT = {
-  address: "Sector 62, Noida, Uttar Pradesh, India",
+  address: "Vancouver, British Columbia, Canada",
   phoneNo: "+91 6388443418",
   email: "abhishekpratap21nov@gmail.com",
 };

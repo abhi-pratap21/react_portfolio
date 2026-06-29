@@ -1,8 +1,7 @@
-import axios from "axios";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { motion } from "framer-motion";
-import { FiMapPin, FiPhone, FiMail, FiSend } from "react-icons/fi";
+import { FiMapPin, FiPhone, FiMail } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
 import { CONTACT } from "../constants";
 import SectionTitle from "./SectionTitle";
@@ -15,29 +14,42 @@ const Contact = () => {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isSubmitting },
+    formState: { errors },
   } = useForm();
 
-  const onSubmit = async (data) => {
-    try {
-      await axios.post("https://getform.io/f/anlelnoa", {
-        name: data.name,
-        email: data.email,
-        message: data.message,
-      });
-      toast.success("Message sent — thanks, I'll get back to you soon!");
-      reset();
-    } catch (error) {
-      toast.error("Something went wrong. Please try again.");
-    }
+  const waNumber = CONTACT.phoneNo.replace(/\D/g, "");
+
+  const buildMessage = (data) =>
+    `New enquiry from your portfolio:\n\n` +
+    `Name: ${data.name}\n` +
+    `Email: ${data.email}\n\n` +
+    `Message:\n${data.message}`;
+
+  // Sends the form straight to Abhishek's WhatsApp (no backend needed)
+  const sendWhatsApp = (data) => {
+    const url = `https://wa.me/${waNumber}?text=${encodeURIComponent(
+      buildMessage(data)
+    )}`;
+    window.open(url, "_blank", "noopener,noreferrer");
+    toast.success("Opening WhatsApp with your message!");
+    reset();
   };
 
-  const whatsappNumber = CONTACT.phoneNo.replace(/\D/g, "");
+  // Opens the visitor's email app pre-addressed to Abhishek
+  const sendEmail = (data) => {
+    const subject = `Portfolio enquiry from ${data.name}`;
+    window.location.href = `mailto:${CONTACT.email}?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(buildMessage(data))}`;
+    toast.success("Opening your email app...");
+    reset();
+  };
+
   const contactItems = [
     {
       Icon: FaWhatsapp,
       value: "Message on WhatsApp",
-      href: `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+      href: `https://wa.me/${waNumber}?text=${encodeURIComponent(
         "Hi Abhishek, I came across your portfolio and would like to connect."
       )}`,
       external: true,
@@ -76,8 +88,8 @@ const Contact = () => {
           </h3>
           <p className="text-neutral-400">
             I&apos;m open to full-time roles, freelance projects, and
-            collaborations. Reach out through the form or directly via the
-            details below.
+            collaborations. Send the form straight to my WhatsApp or email, or
+            reach out directly below.
           </p>
           <div className="flex flex-col gap-4 mt-2">
             {contactItems.map(({ Icon, value, href, external, iconColor }) => {
@@ -119,7 +131,7 @@ const Contact = () => {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          onSubmit={handleSubmit(onSubmit)}
+          onSubmit={handleSubmit(sendWhatsApp)}
           className="flex flex-col gap-4 p-8 border rounded-2xl border-white/10 bg-white/[0.03] backdrop-blur"
         >
           <div>
@@ -158,23 +170,47 @@ const Contact = () => {
               <span className="text-xs text-red-400">Message is required</span>
             )}
           </div>
-          <button
-            type="submit"
-            disabled={isSubmitting}
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 mt-2 font-medium text-white transition rounded-xl bg-gradient-to-r from-cyan-500 to-purple-600 hover:opacity-90 disabled:opacity-50"
-          >
-            {isSubmitting ? (
-              "Sending..."
-            ) : (
-              <>
-                Send Message <FiSend />
-              </>
-            )}
-          </button>
+
+          <div className="flex flex-col gap-3 mt-2 sm:flex-row">
+            <button
+              type="button"
+              onClick={handleSubmit(sendWhatsApp)}
+              className="inline-flex items-center justify-center flex-1 gap-2 px-6 py-3 font-medium text-white transition bg-green-500 rounded-xl hover:bg-green-600"
+            >
+              <FaWhatsapp className="text-lg" /> Send via WhatsApp
+            </button>
+            <button
+              type="button"
+              onClick={handleSubmit(sendEmail)}
+              className="inline-flex items-center justify-center flex-1 gap-2 px-6 py-3 font-medium transition border rounded-xl border-white/15 text-neutral-200 hover:bg-white/5"
+            >
+              <FiMail className="text-lg" /> Send via Email
+            </button>
+          </div>
         </motion.form>
       </div>
 
-      <footer className="pt-10 mt-20 text-sm text-center border-t text-neutral-600 border-white/5">
+      {/* Map */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="max-w-5xl mx-auto mt-12 overflow-hidden border rounded-2xl border-white/10"
+      >
+        <iframe
+          title="Location — Vancouver, British Columbia, Canada"
+          src="https://maps.google.com/maps?q=Vancouver%2C%20British%20Columbia%2C%20Canada&z=11&output=embed"
+          width="100%"
+          height="320"
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          allowFullScreen
+          className="map-dark block w-full"
+        />
+      </motion.div>
+
+      <footer className="pt-10 mt-16 text-sm text-center border-t text-neutral-600 border-white/5">
         © {new Date().getFullYear()} Abhishek Pratap Mall · Built with React,
         Tailwind &amp; Framer Motion.
       </footer>

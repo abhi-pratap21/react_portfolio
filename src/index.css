@@ -68,6 +68,11 @@ body {
   animation-play-state: paused;
 }
 
+/* Dark-themed Google Maps embed to match the site */
+.map-dark {
+  filter: invert(0.92) hue-rotate(180deg) brightness(0.95) contrast(0.9);
+}
+
 /* Floating background blobs */
 @keyframes blob {
   0%, 100% { transform: translate(0px, 0px) scale(1); }
