@@ -5,101 +5,222 @@ import project4 from "../assets/projects/project-4.jpg";
 import project6 from "../assets/projects/project-6.jpg";
 import project5 from "../assets/projects/project-5.jpg";
 
-export const HERO_CONTENT = `I am a passionate full stack web developer with a knack for crafting robust and scalable web applications. With 1 years of hands-on experience, I have honed my skills in front-end technologies like React, Javascript, Tailwind CSS and Next.js, as well as back-end technologies like Node.js, MySQL and MongoDB. My goal is to leverage my expertise to create innovative solutions that drive business growth and deliver exceptional user experiences.`;
-
-export const ABOUT_TEXT = `I am a dedicated and versatile full stack web developer with a passion for creating efficient and user-friendly web applications. With 1+ years of experience, I have worked with a variety of technologies, including React, Javascript,  Tailwind CSS, Next.js, Node.js, MySQL, Express, and MongoDB. My journey in web development began with a deep curiosity for how things work, and it has evolved into a career where I continuously strive to learn and adapt to new challenges. I thrive in collaborative environments and enjoy solving complex problems to deliver high-quality solutions. Outside of coding, I learn Java with DSA and enjoy staying active, exploring new technologies.`;
-
-export const EXPERIENCES = [
-  {
-    year: "2021 - 2025",
-    role: "Greater Noida Instuation of techonology",
-    company: "BTech, CSE",
-    //description: `Led a team in developing and maintaining web applications using JavaScript, React.js, and Node.js. Implemented RESTful APIs and integrated with MongoDB databases. Collaborated with stakeholders to define project requirements and timelines.`,
-    technologies: ["CGPA-7.0"],
-  },
-  {
-    year: "2019 - 2020",
-    role: "LBS Intercollege",
-    company: "Intermediate, UP Board",
-    //description: `Designed and developed user interfaces for web applications using Next.js and React. Worked closely with backend developers to integrate frontend components with Node.js APIs. Implemented responsive designs and optimized frontend performance.`,
-    technologies: ["Percentage-72"],
-  },
-  {
-    year: "2017 - 2018",
-    role: "LBS Intercollege",
-    company: " Highschool, UP Board",
-    //description: `Developed and maintained web applications using JavaScript, React.js, and Node.js. Designed and implemented RESTful APIs for data communication. Collaborated with cross-functional teams to deliver high-quality software products on schedule.`,
-    technologies: ["Percentage-84"],
-  },
-  // {
-  //   year: "Nov 2024 - Feb 2025",
-  //   role: "Frontend Developer Intern",
-  //   company: "GAO Tek Inc",
-  //   description: `Worked on the development and maintenance of e-commerce web pages using WooCommerce and WordPress. Assisted in creating responsive UI components with HTML, CSS, and JavaScript. Collaborated with the team to enhance website performance and user experience.`,
-  //   technologies: ["HTML", "CSS", "JavaScript", "WordPress", "WooCommerce"],
-  // },
+/* ------------------------------------------------------------------ */
+/*  Navigation sections (used by Navbar + side scroll-flow indicator)  */
+/* ------------------------------------------------------------------ */
+export const SECTIONS = [
+  { id: "home", label: "Home" },
+  { id: "about", label: "About" },
+  { id: "skills", label: "Skills" },
+  { id: "experience", label: "Experience" },
+  { id: "education", label: "Education" },
+  { id: "projects", label: "Projects" },
+  { id: "services", label: "Services" },
+  { id: "contact", label: "Contact" },
 ];
 
+export const SOCIALS = {
+  linkedin: "https://www.linkedin.com/in/abhishek-pratap-mall-252481250",
+  github: "https://github.com/Kevin-abhi",
+  twitter: "https://x.com/Abhishe45571287",
+  instagram: "https://www.instagram.com/abhi__pratap",
+};
+
+/* ------------------------------------------------------------------ */
+/*  Hero + About                                                       */
+/* ------------------------------------------------------------------ */
+export const HERO_CONTENT = `I build AI-powered SaaS products end to end — from conversational AI agents and vector search to scalable backend APIs, data pipelines, and cloud infrastructure. Currently a Software Engineer at Amrut AI, I ship production systems that real businesses rely on every day.`;
+
+export const ABOUT_TEXT = `I'm a Full-Stack Software Engineer who builds AI-powered SaaS systems that combine automation, analytics, and scalable architecture — owning every layer from AI agents to cloud infrastructure and data pipelines. At Amrut AI, I'm a core product engineer on an AI-driven SEO and business-intelligence platform, where I design backend architecture, build automation and data pipelines, integrate external data ecosystems, and ship production systems used for real business decisions. I've built a conversational AI agent grounded in Vertex AI semantic search over 400K+ embeddings, batch pipelines processing 1M+ URLs, a Firestore-to-BigQuery analytics warehouse, and 40+ REST endpoints alongside 20+ Next.js / React dashboard tools. Beyond product work, I take on freelance projects through my studio, Trident Square — building websites, apps, and AI integrations for startups and businesses. I care about ownership, performance, and shipping things that actually work.`;
+
+/* Quick stats shown in the About section (animated count-up) */
+export const STATS = [
+  { to: 400, suffix: "K+", label: "Vector embeddings" },
+  { to: 1, suffix: "M+", label: "URLs processed" },
+  { to: 40, suffix: "+", label: "REST endpoints" },
+  { to: 150, suffix: "+", label: "DSA problems solved" },
+];
+
+/* ------------------------------------------------------------------ */
+/*  Work experience                                                    */
+/* ------------------------------------------------------------------ */
+export const WORK_EXPERIENCE = [
+  {
+    role: "Software Engineer",
+    company: "Amrut AI",
+    type: "Full-time · Hybrid",
+    year: "Aug 2025 – Present",
+    location: "Vancouver, BC, Canada",
+    summary:
+      "Full-stack ownership of an AI-powered SEO & business-intelligence SaaS used by real businesses — across AI agents, backend APIs, data pipelines, frontend, and cloud infrastructure.",
+    points: [
+      "Built Vertex AI semantic search over 400K+ vector embeddings (under 100ms, country pre-filtered) powering a conversational AI agent — a 50+ tool registry, a multi-provider LLM adapter (OpenAI, Gemini, Vertex AI), and SSE streaming.",
+      "Engineered batch pipelines processing 1M+ URLs (checkpoint-resumable) for LLM enrichment, classification, and location intelligence across thousands of profiles.",
+      "Designed a Firestore-to-BigQuery analytics warehouse (12+ exports, 9+ clustered views, 58 indexes), optimizing a 2GB changelog scan down to a ~50MB clustered table.",
+      "Shipped 40+ REST endpoints on Firebase Cloud Functions (Node 22, Express, TS) with async jobId-polling driving a multi-stage AI SEO audit pipeline (Lighthouse, Core Web Vitals, GPT-4o enrichment, competitor analysis).",
+      "Delivered 20+ Next.js / React / TypeScript dashboard tools and a streaming AI agent UI (15+ widgets, multi-domain compare) on Redux Toolkit.",
+      "Integrated the Google ecosystem (Search Console, Analytics, YouTube, Business Profile) via multi-account OAuth, plus Stripe payments with HMAC-verified webhooks.",
+      "Hardened public routes with a two-tier App Check anti-scraping gate and a Cloud Armor 5-tier WAF (DDoS, SQLi, XSS, bot, rate-limit) with per-user/IP rate limiting.",
+    ],
+    technologies: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Node.js",
+      "Firebase",
+      "BigQuery",
+      "Vertex AI",
+      "Stripe",
+      "Redux Toolkit",
+    ],
+  },
+  {
+    role: "Software Engineer",
+    company: "BillClap",
+    type: "Full-time · On-site",
+    year: "Jul 2025 – Aug 2025",
+    location: "Noida, Uttar Pradesh, India",
+    summary:
+      "Worked as a full-time Software Engineer, contributing to product development and shipping features across the web stack.",
+    points: [],
+    technologies: ["JavaScript", "React", "Node.js"],
+  },
+];
+
+/* ------------------------------------------------------------------ */
+/*  Education                                                          */
+/* ------------------------------------------------------------------ */
+export const EDUCATION = [
+  {
+    year: "2021 – 2025",
+    degree: "B.Tech, Computer Science & Engineering",
+    institution: "Greater Noida Institute of Technology",
+    location: "Greater Noida, Uttar Pradesh",
+    score: "CGPA 7.0",
+  },
+  {
+    year: "2018 – 2020",
+    degree: "Intermediate (Mathematics), UP Board",
+    institution: "Lal Bahadur Shastri Inter College",
+    location: "Gorakhpur, Uttar Pradesh",
+    score: "72%",
+  },
+  {
+    year: "2017 – 2018",
+    degree: "High School, UP Board",
+    institution: "Lal Bahadur Shastri Inter College",
+    location: "Gorakhpur, Uttar Pradesh",
+    score: "84%",
+  },
+];
+
+/* ------------------------------------------------------------------ */
+/*  Projects                                                           */
+/* ------------------------------------------------------------------ */
 export const PROJECTS = [
   {
-    title: "Wanderlust: A Global Travel Discovery Platform",
+    title: "Creator Dashboard — Role-Based CMS",
+    image: project4,
+    description:
+      "A secure, scalable content-management platform for creators and admins. JWT authentication, a credit-point system, role-based access control, and content aggregation from the Twitter and Reddit APIs. Frontend on Firebase Hosting, backend on Render, database on MongoDB Atlas.",
+    technologies: ["React", "Tailwind", "Node.js", "Express", "JWT", "MongoDB"],
+    link: "",
+  },
+  {
+    title: "Wanderlust — Travel Discovery Platform",
     image: project6,
     description:
-      "Wanderlust is a full-stack platform designed for travel enthusiasts to discover and share amazing travel destinations. Built with JavaScript, Express.js, Node.js, MongoDB, CSS, and EJS, the platform allows users to explore new places, post reviews, and connect with a community of travelers. This project showcases my expertise in full-stack development, with a focus on creating robust backend services and engaging, responsive user interfaces. Through Wanderlust, I gained hands-on experience in managing a full development cycle, from server-side logic to database management and frontend design, further enhancing my proficiency in web technologies.",
-    technologies: ["JavaScript", "NodeJs","ExpressJs","MongoDb","Joi"],
-      link: "https://wanderlust-sem2.onrender.com/listings"
+      "A full-stack platform for travel lovers to discover, review, and share destinations. 50+ listings and 100+ user profiles, secure authentication, and a responsive, community-driven experience built on the MEN stack with EJS.",
+    technologies: ["JavaScript", "Node.js", "Express", "MongoDB", "EJS"],
+    link: "https://wanderlust-sem2.onrender.com/listings",
   },
   {
     title: "Video Streaming App",
     image: project4,
     description:
-      "Designed and implemented a video streaming system that transmitted video data in small packets, achieving less than 1-second latency for real-time playback.Employed M3U8 format to implement adaptive bitrate streaming, resulting in a 25% reduction in buffering by dynamically adjusting video quality based on the user’s internet connection speed.",
-    technologies: ["React", "NodeJs","ExpressJs","FFmpeg","videojs","Context API"],
-      // link: "https://react-e-commerce-shop-xi.vercel.app/"
+      "A real-time video streaming system delivering data in small packets with under-1-second latency. Adaptive bitrate streaming via M3U8 cut buffering by ~25% by adjusting quality to the viewer's connection speed.",
+    technologies: ["React", "Node.js", "Express", "FFmpeg", "Video.js"],
+    link: "",
   },
   {
-    title: "E-commerce Shopping Website",
+    title: "E-Commerce Shopping Website",
     image: project1,
     description:
-      "This is a fully responsive e-commerce shopping website project built using React and Tailwind CSS. The website utilizes the Fake Store API to fetch data and display products. The Context API is used to manage state throughout the application.",
+      "A fully responsive e-commerce store built with React and Tailwind CSS. Uses the Fake Store API for product data and the Context API for global state and cart management.",
     technologies: ["React", "Tailwind CSS", "Context API"],
-    link: "https://react-e-commerce-shop-xi.vercel.app/"
+    link: "https://react-e-commerce-shop-xi.vercel.app/",
   },
   {
-    title: "Portfolio Website",
-    image: project3,
-    description:
-      "A personal portfolio website showcasing projects, skills, and contact information.Developed a responsive and visually appealing portfolio website using React, a popular JavaScript library for building user interfaces, and Tailwind CSS, a utility-first CSS framework for styling and layout.",
-    technologies: ["React", "Tailwind CSS"],
-    link: "#home"
-  },
-  {
-    title: "Weather-react App",
+    title: "Weather App",
     image: project5,
     description:
-      "A dynamic weather application built using React that provides real-time weather updates for locations worldwide. Leveraging a clean and intuitive UI, users can search for any city to view current weather conditions, temperature, humidity, and forecasts. The app integrates with a weather API to fetch accurate and up-to-date data. This project demonstrates my skills in React, API integration, and responsive design for a seamless user experience across all devices.",
-    technologies: ["React.js", "openweathermap Api"],
-    link: "https://weather-reactapp-henna.vercel.app/"
+      "A dynamic weather app giving real-time conditions for any city worldwide — temperature, humidity, and forecasts — through a clean, responsive UI powered by the OpenWeatherMap API.",
+    technologies: ["React", "OpenWeatherMap API"],
+    link: "https://weather-reactapp-henna.vercel.app/",
   },
   {
-    title: "TO-DO App",
+    title: "To-Do App",
     image: project2,
     description:
-      "Develop a user-friendly interface using React components to allow users to create, edit, and delete TO-DO list items. Implemented authentication and authorization using Fairbase, a cloud-based database and authentication service, to manage user accounts and ensure secure data storage",
+      "A user-friendly task manager to create, edit, and delete to-dos, with authentication and secure cloud storage handled by Firebase.",
     technologies: ["Next.js", "Firebase"],
-    link: "https://todo-next-firebase-xi.vercel.app/"
-  },
-  {
-    title: "Creator Dashboard: A Full-Stack Role-Based Content Management Platform",
-    image: project4,
-    description:
-      "Creator Dashboard is a secure and scalable platform designed to empower creators and administrators with real-time content management capabilities. Built using React.js, Tailwind CSS, Node.js, Express.js, and MongoDB, the application includes features such as JWT-based user authentication, a credit point system, and content aggregation from Twitter and Reddit APIs. Users can interact with posts (save, share, report), while administrators have a dedicated panel for managing user activity and platform content. This project demonstrates my full-stack development skills, including building RESTful APIs, implementing role-based access control, integrating third-party APIs, and deploying a complete web solution on modern cloud platforms. The frontend is deployed on Firebase Hosting, the backend is hosted on Render, and the database is managed through MongoDB Atlas, ensuring reliable performance and scalability across all layers of the stack.",
-    technologies: ["ReactJs", "TailwindCss", "NodeJs", "ExpressJs", "JWT", "MongoDBAtlas"],
+    link: "https://todo-next-firebase-xi.vercel.app/",
   },
 ];
 
+/* ------------------------------------------------------------------ */
+/*  Freelance services (Trident Square)                                */
+/* ------------------------------------------------------------------ */
+export const TRIDENT = {
+  name: "Trident Square",
+  url: "https://www.tridentsquare.com/",
+  tagline: "Build digital products that scale.",
+};
+
+export const SERVICES = [
+  {
+    icon: "web",
+    title: "Web Development",
+    description:
+      "Fast, responsive websites and web apps built with React, Next.js, and Node.js — from landing pages to full SaaS platforms.",
+  },
+  {
+    icon: "app",
+    title: "App Development",
+    description:
+      "Cross-platform mobile apps that feel native, built to scale with a clean, modern user experience.",
+  },
+  {
+    icon: "ai",
+    title: "AI Integration",
+    description:
+      "Bring AI into your product — chatbots, automation, LLM agents, and semantic search wired into real workflows.",
+  },
+  {
+    icon: "ecommerce",
+    title: "E-Commerce",
+    description:
+      "Complete online stores with payments, inventory, and a smooth, conversion-focused checkout experience.",
+  },
+  {
+    icon: "software",
+    title: "Custom Software & APIs",
+    description:
+      "CRMs, dashboards, automations, and clean REST APIs tailored to how your business actually works.",
+  },
+  {
+    icon: "design",
+    title: "UI/UX Design",
+    description:
+      "Clean, modern interfaces and design systems — from wireframes and prototypes to polished, shippable products.",
+  },
+];
+
+/* ------------------------------------------------------------------ */
+/*  Contact                                                            */
+/* ------------------------------------------------------------------ */
 export const CONTACT = {
-  address: "Noida Sector - 62, Uttar Predesh",
+  address: "Sector 62, Noida, Uttar Pradesh, India",
   phoneNo: "+91 6388443418",
-  email: "mallabhishekpratap88@gmail.com",
+  email: "abhishekpratap21nov@gmail.com",
 };

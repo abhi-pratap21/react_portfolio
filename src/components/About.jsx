@@ -1,48 +1,52 @@
-import aboutImg from "../assets/about.jpg";
-import { ABOUT_TEXT } from "../constants";
-import pdf from "../pdf/resume.pdf";
-import { delay, motion } from "framer-motion";
+import { motion } from "framer-motion";
+import { ABOUT_TEXT, STATS } from "../constants";
+import SectionTitle from "./SectionTitle";
+import Counter from "./Counter";
 
 const About = () => {
   return (
-    <div className="pb-4 border-b border-neutral-900" id="about">
-        <h1 className="my-20 text-4xl text-center">
-            About
-            <span className="text-neutral-500"> Me</span>
-        </h1>
-        <div className="flex flex-wrap">
-            <motion.div
-                whileInView={{ opacity: 1, x: 0 }}
-                initial={{ opacity: 0, x: -100 }}
-                transition={{ duration: 0.5 }}
-                className="w-full lg:w-1/2 lg:p-8">
-                <div className="flex items-center justify-center">
-                    <img className="rounded-2xl" src={aboutImg} alt="about"></img>
-                </div>
-            </motion.div>
-            <motion.div
-                 whileInView={{ opacity: 1, x: 0 }}
-                 initial={{ opacity: 0, x: 100 }}
-                 transition={{ duration: 0.5 }}
-                className="w-full lg:w-1/2">
-                <div className="flex justify-center lg:justify-start">
-                    <p className="my-2 max-w-xl py=6">{ABOUT_TEXT}</p>
-                </div>
+    <section id="about" className="py-24 border-b scroll-mt-24 border-white/5">
+      <SectionTitle kicker="Who I Am">
+        About <span className="text-neutral-500">Me</span>
+      </SectionTitle>
 
-                {/* resume dounload link
+      <div className="max-w-4xl mx-auto mt-14">
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-lg leading-relaxed text-center text-neutral-300"
+        >
+          {ABOUT_TEXT}
+        </motion.p>
 
-                 <div  className="flex justify-center text-2xl tracking-tight text-transparent bg-gradient-to-r from-pink-50 via-slate-800 to-purple-800 bg-clip-text hover:text-pretty">
-                    
-                       <a href={pdf} download="Resume.pdf">
-                        Download Resume
-                         
-                    </a>
-                    
-                </div>   */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
+          className="grid grid-cols-2 gap-4 mt-12 sm:grid-cols-4"
+        >
+          {STATS.map((s) => (
+            <motion.div
+              key={s.label}
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              whileHover={{ y: -6 }}
+              className="p-5 text-center transition-colors border rounded-2xl border-white/5 bg-white/[0.02] hover:border-white/15"
+            >
+              <div className="text-3xl font-semibold text-transparent bg-gradient-to-r from-cyan-300 to-purple-400 bg-clip-text">
+                <Counter to={s.to} suffix={s.suffix} />
+              </div>
+              <div className="mt-2 text-xs text-neutral-500">{s.label}</div>
             </motion.div>
-             
-        </div>
-    </div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
   );
 };
 
