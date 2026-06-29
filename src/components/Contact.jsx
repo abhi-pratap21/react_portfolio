@@ -175,16 +175,16 @@ const Contact = () => {
             <button
               type="button"
               onClick={handleSubmit(sendWhatsApp)}
-              className="inline-flex items-center justify-center flex-1 gap-2 px-6 py-3 font-medium text-white transition bg-green-500 rounded-xl hover:bg-green-600"
+              className="inline-flex items-center justify-center flex-1 gap-2 px-4 py-3 text-sm font-medium text-white transition bg-green-500 rounded-xl whitespace-nowrap hover:bg-green-600"
             >
-              <FaWhatsapp className="text-lg" /> Send via WhatsApp
+              <FaWhatsapp className="text-base shrink-0" /> Send via WhatsApp
             </button>
             <button
               type="button"
               onClick={handleSubmit(sendEmail)}
-              className="inline-flex items-center justify-center flex-1 gap-2 px-6 py-3 font-medium transition border rounded-xl border-white/15 text-neutral-200 hover:bg-white/5"
+              className="inline-flex items-center justify-center flex-1 gap-2 px-4 py-3 text-sm font-medium transition border rounded-xl whitespace-nowrap border-white/15 text-neutral-200 hover:bg-white/5"
             >
-              <FiMail className="text-lg" /> Send via Email
+              <FiMail className="text-base shrink-0" /> Send via Email
             </button>
           </div>
         </motion.form>
