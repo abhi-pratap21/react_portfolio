@@ -75,13 +75,13 @@ export const WORK_EXPERIENCE = [
     ],
   },
   {
-    role: "Software Engineer",
+    role: "Software Engineer Trainee",
     company: "BillClap",
     type: "Full-time · On-site",
-    year: "Jul 2025 – Aug 2025",
+    year: "Jun 2025 – Aug 2025",
     location: "Noida, Uttar Pradesh, India",
     summary:
-      "Worked as a full-time Software Engineer, contributing to product development and shipping features across the web stack.",
+      "Worked as a full-time Software Engineer Trainee, contributing to product development and shipping features across the web stack.",
     points: [],
     technologies: ["JavaScript", "React", "Node.js"],
   },

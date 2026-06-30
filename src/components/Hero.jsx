@@ -8,7 +8,7 @@ import {
 import { FiArrowRight, FiDownload, FiChevronDown } from "react-icons/fi";
 import { HERO_CONTENT } from "../constants";
 import profilePic from "../assets/abhiprofilepic.jpg";
-import pdf from "../pdf/resume.pdf";
+import pdf from "../pdf/Abhishek_Pratap_Mall_Resume.pdf";
 import Magnetic from "./Magnetic";
 
 const ROLES = [
